@@ -10,7 +10,7 @@ You will need to install the LocalDB database tables from the Database.dacpac fi
 5. The database is now loaded and ready!
 
 You may also need to set the Startup Configuration on your local machine by doing the following:
-1. In the middle of the bar at the top there should be a green play arrow that may say "Start" next to it or have a browser or something else listed, click the drop down icon to the right of it and select "Configure Startup Projects"
+1. In Visual Studio on the middle of the bar at the top there should be a green play arrow that may say "Start" next to it or have a browser or something else listed, click the drop down icon to the right of it and select "Configure Startup Projects"
 2. In the pop-up on the right side it may have "Single startup project" selected, if so this is incorrect--we need both projects to start at once. Select "Multiple startup projects" and in the box below make sure the "Action" on both is set to "Start", and the debug target for the client project is set to localhost with your favorite browser (the server project can be left blank here unless we want to use Swagger to test the API endpoints directly).
 3. Click on "Apply" and then close the dialog box.
 
