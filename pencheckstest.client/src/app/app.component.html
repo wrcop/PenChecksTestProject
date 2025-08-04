@@ -1,0 +1,65 @@
+
+
+
+
+<div *ngIf="!customer.name">
+  <button (click)="getCustomerInfo(1)" style="padding:4px;">Log In</button>
+</div>
+
+<div *ngIf="customer.name">
+  <h1>Welcome, {{customer.name}}</h1>
+  <hr />
+  <h3 style="text-align:left;">Account Select</h3>
+  <div *ngIf="customer.accounts" style="text-align:left;">
+    <button *ngFor="let custaccount of customer.accounts" (click)="getAccountInfo(custaccount.accountId)" style="padding:4px;">{{custaccount.type}}</button>
+  </div>
+  <hr />
+</div>
+
+
+<table *ngIf="account.accountId > 0" style="text-align:left; width:100%;">
+  <tr>
+    <td align="left">
+      <h2 style="text-align:left;">Account Information</h2>
+      <div><b>Account ID:</b> {{account.accountId}}</div>
+      <div><b>Account Type:</b> {{account.type}}</div>
+      <div><b>Account Balance:</b> {{account.balance | currency}}</div>
+    </td>
+    <td align="left" style="border:1px solid black;background-color:lightgray;">
+      <h2 style="text-align:left;">Transaction</h2>
+      $<input type="number" name="amountvalue" [(ngModel)]="transaction.Amount" />
+      <input type="radio" name="transactiontype" [(ngModel)]="transaction.Type" value=1 /> Withdrawl
+      <input type="radio" name="transactiontype" [(ngModel)]="transaction.Type" value=2 /> Deposit
+      <input type="radio" name="transactiontype" [(ngModel)]="transaction.Type" value=3 /> Transfer to other account
+      <button type="submit" (click)="submitTransaction()">Submit</button><br />
+      <p *ngIf="errorStatus.error == true" style="color:red;">ERROR: {{errorStatus.errorInformation}}</p>
+    </td>
+  </tr>
+</table>
+
+
+
+<div *ngIf="account.transactionHistory && account.accountId > 0">
+  <hr />
+  <h3>Transaction History:</h3>
+  <table>
+    <tr style="font-weight:bold;">
+      <td>Transaction ID</td>
+      <td>Transaction Amount</td>
+      <td>Transaction Type</td>
+      <td>Transaction Transfer Account</td>
+      <td>Ending Balance</td>
+      <td>Transaction TimeStamp</td>
+    </tr>
+    <tr *ngFor="let transaction of account.transactionHistory">
+      <td>{{transaction.id}}</td>
+      <td>{{transaction.amount | currency}}</td>
+      <td>{{transaction.type}}</td>
+      <td>{{transaction.transferAccount}}</td>
+      <td>{{transaction.balance | currency}}</td>
+      <td>{{transaction.timeStamp | date:'short'}}</td>
+    </tr>
+  </table>
+  <hr />
+</div>
+

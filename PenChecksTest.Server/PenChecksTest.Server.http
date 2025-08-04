@@ -1,0 +1,6 @@
+@PenChecksTest.Server_HostAddress = http://localhost:5261
+
+GET {{PenChecksTest.Server_HostAddress}}/account/weatherforecast
+Accept: application/json
+
+###
