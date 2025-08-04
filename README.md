@@ -1,3 +1,5 @@
+Instructions for setup and running of project locally:
+
 Before running the project make sure you have node.js and npm installed on your machine.
 Check that they are installed properly by opening the PenChecksTest.sln file and running a build on the solution.
 Please use Visual Studio 2022 if possible for best compatibility and results.
